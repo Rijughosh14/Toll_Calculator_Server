@@ -4,6 +4,8 @@ const dotenv = require('dotenv').config()
 const axios = require('axios');
 const { decode } = require('./flexPoly');
 const { encode } = require('@googlemaps/polyline-codec');
+const bodyParser = require('body-parser');
+
 
 
 
@@ -11,6 +13,8 @@ const { encode } = require('@googlemaps/polyline-codec');
 
 
 const app = express();
+
+app.use(bodyParser.json({ limit: '50mb' })); // Adjust limit as needed
 
 //cors config
 app.use(cors({ origin: true, credentials: true }))
